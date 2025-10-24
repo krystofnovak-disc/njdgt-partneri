@@ -126,3 +126,13 @@
       <img class="logo-tall" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/10/popik_bez.svg" alt="logo Popcorn Popík">
     </a>
   </div>
+<script>
+(function() {
+  function sendHeight() {
+    const height = document.body.scrollHeight;
+    parent.postMessage({ height: height }, "*");
+  }
+  window.addEventListener("load", sendHeight);
+  window.addEventListener("resize", sendHeight);
+})();
+</script>
