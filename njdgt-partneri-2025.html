@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root {
-    --tile-min: 30%;   /* min šířka dlaždice */
+    --tile-min: 45%;   /* min šířka dlaždice */
     --tile-ratio: 3 / 2; /* výška řádku: vyšší číslo vlevo = nižší dlaždice (např. 5/2 je vyšší) */
     --gap: 10px;         /* mezery mezi logy */
     --pad: 10px;         /* vnitřní odsazení dlaždice */
@@ -31,10 +31,10 @@
     justify-content: center;
     padding: var(--pad);
     aspect-ratio: var(--tile-ratio);
-    transition: transform .15s ease, box-shadow .15s ease;
+    transition: transform .3s ease, box-shadow .15s ease;
   }
   .partner-tile:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   /* Odkaz přes celou dlaždici kvůli klikatelnosti */
