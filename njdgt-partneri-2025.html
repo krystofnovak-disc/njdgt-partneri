@@ -1,31 +1,143 @@
-<div class="row">
-        <div class="column">
-            <p>
-                <a href="https://www.fokusnj.cz/" target="_blank"><img alt="logo SVČ Fokus Nový Jičín" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/fokus.svg" /></a></p>
-            <p>
-                <a href="https://www.novyjicin.cz/" target="_blank"><img alt="logo Nového Jičína" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/novyjicin.svg" /></a></p>
-            <p>
-                <a href="https://www.drwitt.cz/" target="_blank"><img alt="logo DrWitt" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/drwitt.svg" /></a></p>
-            <p>
-                <a href="https://www.prodiscgolf.cz/" target="_blank"><img alt="logo proDiscgolf.cz" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/prodiscgolf.svg" /></a></p>
-            <p>
-                <a href="https://www.udisc.com/" target="_blank"><img alt="logo UDisc" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/udisc.svg" /></a></p>
-            <p>
-                <a href="https://www.aczm.cz/" target="_blank"><img alt="logo ACZM" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/aczm.svg" /></a></p>
-            <p>
-                <a href="https://www.cadg.cz/" target="_blank"><img alt="logo ČADG" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/cadg.svg" /></a></p>
-        </div>
-        <div class="column">
-	<p>
-		<a href="https://www.motoreststaryjicin.cz/" target="_blank"><img alt="logo Motorestu Starý Jičín" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/motorest.svg" /></a></p>
-	<p>
-		<a href="https://www.nasnetgroup.cz/web/" target="_blank"><img alt="logo Náš-net.org" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/nasnetorg.svg" /></a></p>
-	<p>
-		<a href="https://www.magicpark.cz" target="_blank"><img alt="logo Magic Park" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/magicpark.svg" /></a></p>
-	<p>
-		<a href="https://www.chillipeterson.cz" target="_blank"><img alt="logo Chilli Peterson" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/chillipeterson.svg" /></a></p>
-	<p>
-		<a href="https://www.energistavnj.cz" target="_blank"><img alt="logo Energistav" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/energistav.svg" /></a></p>
-	<p>
-		<a href="https://www.wingmandiscs.com" target="_blank"><img alt="logo Wingman Discs" class="partner-logo" src="https://moraviangators.cz/wp-content/uploads/2025/01/wingman.svg" /></a></p>
-        </div>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Partneři NJDGT 2025</title>
+<style>
+  :root {
+    --tile-min: 140px;   /* min šířka dlaždice */
+    --tile-ratio: 3 / 1; /* výška řádku: vyšší číslo vlevo = nižší dlaždice (např. 5/2 je vyšší) */
+    --gap: 20px;         /* mezery mezi logy */
+    --pad: 10px;         /* vnitřní odsazení dlaždice */
+    --logo-max-h: 70%;   /* max výška loga relativně k dlaždici */
+    --logo-max-w: 90%;   /* max šířka loga relativně k dlaždici */
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: #fff;
+    padding: 10px;
+    font-family: system-ui, Arial, sans-serif;
+  }
+
+  /* Responzivní mřížka – kolik se vejde */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--tile-min), 1fr));
+    gap: var(--gap);
+    align-items: stretch;
+    justify-items: stretch;
+  }
+
+  /* Dlaždice partnera s konzistentní výškou */
+  .partner-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pad);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #fff;
+    aspect-ratio: var(--tile-ratio);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .partner-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,.07);
+  }
+
+  /* Odkaz přes celou dlaždici kvůli klikatelnosti */
+  .partner-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; height: 100%;
+    text-decoration: none;
+  }
+
+  /* Logo – bez deformace */
+  .partner-logo {
+    max-height: var(--logo-max-h);
+    max-width:  var(--logo-max-w);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Jemnější layout na menších displejích */
+  @media (max-width: 640px) {
+    :root {
+      --tile-min: 120px;
+      --gap: 16px;
+      --logo-max-h: 65%;
+    }
+  }
+
+  /* Volitelné doladění pro hodně široká / vysoká loga (přidej třídu k <img>) */
+  .logo-wide  { max-width: 95%; }
+  .logo-tall  { max-height: 80%; }
+</style>
+</head>
+<body>
+  <div class="partners-grid" aria-label="Partneři NJDGT 2025">
+    <a class="partner-link partner-tile" href="https://www.fokusnj.cz/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/fokus.svg" alt="logo SVČ Fokus Nový Jičín">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.novyjicin.cz/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/novyjicin.svg" alt="logo Nového Jičína">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.drwitt.cz/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/drwitt.svg" alt="logo DrWitt">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.prodiscgolf.cz/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/prodiscgolf.svg" alt="logo proDiscgolf.cz">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.udisc.com/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/udisc.svg" alt="logo UDisc">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.aczm.cz/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/aczm.svg" alt="logo ACZM">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.cadg.cz/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/cadg.svg" alt="logo ČADG">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.motoreststaryjicin.cz/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/motorest.svg" alt="logo Motorestu Starý Jičín">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.matraceprotebe.cz/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/02/matraceprotebe-1.svg" alt="logo Matrace pro tebe">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.nasnetgroup.cz/web/" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/nasnetorg.svg" alt="logo Náš-net.org">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.magicpark.cz" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/magicpark.svg" alt="logo Magic Park">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.energistavnj.cz" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/energistav.svg" alt="logo Energistav">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://www.wingmandiscs.com" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/wingman.svg" alt="logo Wingman Discs">
+    </a>
+
+    <a class="partner-link partner-tile" href="https://popcornpopik.webnode.cz" target="_blank" rel="noopener">
+      <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/08/popik.svg" alt="logo Popcorn Popík">
+    </a>
+  </div>
+</body>
+</html>
