@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root {
-    --tile-min: 300px;   /* min šířka dlaždice */
+    --tile-min: 25%;   /* min šířka dlaždice */
     --tile-ratio: 3 / 1; /* výška řádku: vyšší číslo vlevo = nižší dlaždice (např. 5/2 je vyšší) */
     --gap: 10px;         /* mezery mezi logy */
     --pad: 10px;         /* vnitřní odsazení dlaždice */
@@ -12,9 +12,7 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; }
   body {
-    background: #fff;
     padding: 10px;
-    font-family: system-ui, Arial, sans-serif;
   }
 
   /* Responzivní mřížka – kolik se vejde */
@@ -36,8 +34,7 @@
     transition: transform .15s ease, box-shadow .15s ease;
   }
   .partner-tile:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,.07);
+    transform: scale(1.2);
   }
 
   /* Odkaz přes celou dlaždici kvůli klikatelnosti */
@@ -72,8 +69,6 @@
   .logo-wide  { max-width: 95%; }
   .logo-tall  { max-height: 80%; }
 </style>
-</head>
-<body>
   <div class="partners-grid" aria-label="Partneři NJDGT 2025">
     <a class="partner-link partner-tile" href="https://www.fokusnj.cz/" target="_blank" rel="noopener">
       <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/01/fokus.svg" alt="logo SVČ Fokus Nový Jičín">
@@ -131,5 +126,3 @@
       <img class="partner-logo" loading="lazy" src="https://moraviangators.cz/wp-content/uploads/2025/08/popik.svg" alt="logo Popcorn Popík">
     </a>
   </div>
-</body>
-</html>
