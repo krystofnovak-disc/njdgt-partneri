@@ -149,10 +149,16 @@
 <script>
 (function() {
   function sendHeight() {
-    const height = document.body.scrollHeight;
-    parent.postMessage({ height: height }, "*");
+    // documentElement.scrollHeight je spolehlivější než body.scrollHeight
+    const height = document.documentElement.scrollHeight;
+    window.parent.postMessage({ height: height }, "*");
   }
+
+  // Sledujeme jakoukoliv změnu velikosti obsahu (např. načtení lazy obrázků)
+  const observer = new ResizeObserver(sendHeight);
+  observer.observe(document.body);
+
+  // Pro jistotu odešleme i při načtení
   window.addEventListener("load", sendHeight);
-  window.addEventListener("resize", sendHeight);
 })();
 </script>
